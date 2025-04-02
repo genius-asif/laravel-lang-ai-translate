@@ -11,7 +11,7 @@ class LaravelLangAiTranslateServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('laravel-lang-ai-translate');
+            ->name('laravel-lang-ai-translate')
             ->hasConfigFile('lang-ai-translation')
             ->hasCommand(LaravelLangAiTranslateCommand::class);
     }
