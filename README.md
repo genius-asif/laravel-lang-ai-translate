@@ -1,93 +1,111 @@
-# :package_description
+```markdown
+# Laravel Language AI Translate
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This repo can be used to scaffold a Laravel package. Follow these steps to get started:
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/genius-asif/laravel-lang-ai-translate.svg?style=flat-square)](https://packagist.org/packages/genius-asif/laravel-lang-ai-translate)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/genius-asif/laravel-lang-ai-translate/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/genius-asif/laravel-lang-ai-translate/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/genius-asif/laravel-lang-ai-translate/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/genius-asif/laravel-lang-ai-translate/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/genius-asif/laravel-lang-ai-translate.svg?style=flat-square)](https://packagist.org/packages/genius-asif/laravel-lang-ai-translate)
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+<p align="center">
+    <img src="logo.png" width="200" alt="Package Logo" />
+</p>
 
-## Support us
+<h1 align="center">
+    Laravel Lang AI Translate v1.0.0
+</h1>
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+Effortlessly translate your Laravel language files from English to multiple languages using powerful AI APIs like Google Gemini, OpenAI, and DeepSeek. Automate your localization workflow and reach a global audience with ease.
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+## Key Features
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+-   **AI-Powered Translation:** Leverage the capabilities of Google Gemini, OpenAI, and DeepSeek for accurate and efficient translations.
+-   **Automated Workflow:** Simplify your translation process by automating the translation of entire language files.
+-   **Multiple Language Support:** Translate to a wide range of languages supported by the integrated AI APIs.
+-   **Easy Integration:** Seamlessly integrate into your Laravel project with a simple Artisan command.
+-   **Configurable Providers:** Easily switch between different AI translation providers based on your needs and preferences.
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via Composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require genius-asif/laravel-lang-ai-translate
 ```
 
-You can publish and run the migrations with:
+Publish the configuration file:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="lang-ai-translation"
 ```
 
-You can publish the config file with:
+This will create a `config/lang-ai-translation.php` file where you can configure your LLM API keys and language settings.
 
-```bash
-php artisan vendor:publish --tag=":package_slug-config"
-```
+**Configuration:**
 
-This is the contents of the published config file:
+Open the `config/lang-ai-translation.php` file and add your API keys for the desired translation providers:
 
 ```php
+<?php
+
 return [
+    'languages' => [
+        'hi' => 'Hindi',
+        'es' => 'Spanish',
+        'fr' => 'French',
+        'ur' => 'Urdu',
+    ],
+    'providers' => [
+        'google_gemini' => [
+            'key' => env('GOOGLE_GEMINI_API_KEY', ''),
+            'url' => env('GOOGLE_GEMINI_API_URL', '[https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=](https://www.google.com/search?q=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent%3Fkey%3D)' . env('GOOGLE_GEMINI_API_KEY')),
+        ],
+        'openai' => [
+            'key' => env('OPENAI_API_KEY', ''),
+            'url' => env('OPENAI_API_URL', '[https://api.openai.com/v1/chat/completions](https://api.openai.com/v1/chat/completions)'),
+        ],
+        'deepseek' => [
+            'key' => env('DEEPSEEK_API_KEY', ''),
+            'url' => env('DEEPSEEK_API_URL', '[https://api.deepseek.com/chat/completions](https://api.deepseek.com/chat/completions)'),
+        ],
+    ],
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
-```
+Ensure you add the corresponding API keys to your `.env` file.
 
 ## Usage
 
-```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+Use the following Artisan command to translate your language files:
+
+```bash
+php artisan lang:translate
 ```
+
+The command will prompt you to:
+
+1.  Select the target language.
+2.  Choose the AI translation provider.
+
+
+![alt text](image.png)
+
+The package will then automatically translate your language files from the `lang/en` directory to the selected language directory.
 
 ## Testing
 
 ```bash
-composer test
+Coming soon...
 ```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+We'd love your help making the package even better! Feel free to submit a pull request or open an issue for any enhancements or bug fixes. Everyone's welcome! 🎉
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+-   [Asif Shaikh](https://github.com/genius-asif)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+This project is licensed under the MIT License.
