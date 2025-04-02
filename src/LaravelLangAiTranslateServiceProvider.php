@@ -19,7 +19,7 @@ class LaravelLangAiTranslateServiceProvider extends PackageServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/lang-ai-translation.php' => config_path('lang-ai-translation.php'),
+                __DIR__.'/../config/lang-ai-translation.php' => config_path('lang-ai-translation.php'),
             ], 'lang-ai-translation');
         }
     }
