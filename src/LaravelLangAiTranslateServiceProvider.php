@@ -12,20 +12,20 @@ class LaravelLangAiTranslateServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-lang-ai-translate');
-            // ->hasConfigFile('lang-ai-translation')
-            // ->hasCommand(LaravelLangAiTranslateCommand::class);
+            ->hasConfigFile('lang-ai-translation')
+            ->hasCommand(LaravelLangAiTranslateCommand::class);
     }
 
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                \GeniusAsif\LaravelLangAiTranslate\Commands\LaravelLangAiTranslateCommand::class,
-            ]);
+    // public function boot()
+    // {
+    //     if ($this->app->runningInConsole()) {
+    //         $this->commands([
+    //             \GeniusAsif\LaravelLangAiTranslate\Commands\LaravelLangAiTranslateCommand::class,
+    //         ]);
 
-            $this->publishes([
-                __DIR__.'/../config/lang-ai-translation.php' => config_path('lang-ai-translation.php'),
-            ], 'lang-ai-translation');
-        }
-    }
+    //         $this->publishes([
+    //             __DIR__.'/../config/lang-ai-translation.php' => config_path('lang-ai-translation.php'),
+    //         ], 'lang-ai-translation');
+    //     }
+    // }
 }
