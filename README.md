@@ -1,6 +1,3 @@
-```markdown
-# Laravel Language AI Translate
-
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/genius-asif/laravel-lang-ai-translate.svg?style=flat-square)](https://packagist.org/packages/genius-asif/laravel-lang-ai-translate)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/genius-asif/laravel-lang-ai-translate/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/genius-asif/laravel-lang-ai-translate/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/genius-asif/laravel-lang-ai-translate/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/genius-asif/laravel-lang-ai-translate/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
@@ -11,7 +8,7 @@
 </p>
 
 <h1 align="center">
-    Laravel Lang AI Translate v1.0.0
+    Laravel Language AI Translate
 </h1>
 
 Effortlessly translate your Laravel language files from English to multiple languages using powerful AI APIs like Google Gemini, OpenAI, and DeepSeek. Automate your localization workflow and reach a global audience with ease.
