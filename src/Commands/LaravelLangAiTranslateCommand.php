@@ -89,7 +89,7 @@ class LaravelLangAiTranslateCommand extends Command
         progress(
             label: 'Translating language files...',
             steps: count($files),
-            callback: function () use ($files, $language, $langKey, $apiProvider, $translator) {
+            callback: function () use ($files, $language, $langKey, $apiProvider, $translator): void {
                 foreach ($files as $file) {
                     $filename = $file->getFilenameWithoutExtension();
                     $filePath = $file->getPathname();

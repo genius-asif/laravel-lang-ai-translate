@@ -43,16 +43,16 @@ return [
     */
     'providers' => [
         'google_gemini' => [
-            'key' => env('GOOGLE_GEMINI_API_KEY', ''),
-            'url' => env('GOOGLE_GEMINI_API_URL', 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='.env('GOOGLE_GEMINI_API_KEY')),
+            'key' => config('GOOGLE_GEMINI_API_KEY', ''),
+            'url' => config('GOOGLE_GEMINI_API_URL', 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='.config('GOOGLE_GEMINI_API_KEY')),
         ],
         'openai' => [
-            'key' => env('OPENAI_API_KEY', ''),
-            'url' => env('OPENAI_API_URL', 'https://api.openai.com/v1/chat/completions'),
+            'key' => config('OPENAI_API_KEY', ''),
+            'url' => config('OPENAI_API_URL', 'https://api.openai.com/v1/chat/completions'),
         ],
         'deepseek' => [
-            'key' => env('DEEPSEEK_API_KEY', ''),
-            'url' => env('DEEPSEEK_API_URL', 'https://api.deepseek.com/chat/completions'),
+            'key' => config('DEEPSEEK_API_KEY', ''),
+            'url' => config('DEEPSEEK_API_URL', 'https://api.deepseek.com/chat/completions'),
         ],
     ],
 ];
