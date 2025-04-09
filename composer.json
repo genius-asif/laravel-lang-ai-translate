@@ -83,7 +83,10 @@
             ],
             "aliases": {
                 "LaravelLangAiTranslate": "GeniusAsif\\LaravelLangAiTranslate\\Facades\\LaravelLangAiTranslate"
-            }
+            },
+            "commands": [
+                "GeniusAsif\\LaravelLangAiTranslate\\Commands\\LaravelLangAiTranslateCommand"
+            ]
         }
     },
     "minimum-stability": "stable",
