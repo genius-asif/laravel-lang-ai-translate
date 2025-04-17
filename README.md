@@ -21,6 +21,11 @@ Effortlessly translate your Laravel language files from English to multiple lang
 -   **Easy Integration:** Seamlessly integrate into your Laravel project with a simple Artisan command.
 -   **Configurable Providers:** Easily switch between different AI translation providers based on your needs and preferences.
 
+## Prerequisites
+
+-   **PHP 8.3 or higher**
+-   **Laravel 11 or higher**
+
 ## Installation
 
 You can install the package via Composer:
@@ -32,7 +37,7 @@ composer require genius-asif/laravel-lang-ai-translate
 Publish the configuration file:
 
 ```bash
-php artisan vendor:publish --tag="lang-ai-translation"
+php artisan vendor:publish
 ```
 
 This will create a `config/lang-ai-translation.php` file where you can configure your LLM API keys and language settings.
@@ -75,7 +80,7 @@ Ensure you add the corresponding API keys to your `.env` file.
 Use the following Artisan command to translate your language files:
 
 ```bash
-php artisan lang:translate
+php artisan translate:lang
 ```
 
 The command will prompt you to:
